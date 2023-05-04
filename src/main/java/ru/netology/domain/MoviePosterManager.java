@@ -25,16 +25,18 @@ public class MoviePosterManager {
     }
 
     public MoviePoster[] findLast() {
-        int resultLength;
-        if (posters.length < limit) {
-            resultLength = posters.length;
-        } else {
-            resultLength = limit;
-        }
+        int resultLength = (posters.length < limit) ? posters.length : limit;
+
         MoviePoster[] result = new MoviePoster[resultLength];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = posters[posters.length - 1 - i];
+        for (int i = (result.length - 1) ; i >= 0; i--) {
+            result[i] = posters[posters.length - i - 1];
         }
         return result;
+
+//       MoviePoster[] result = new MoviePoster[resultLength];
+//        for (int i = 0; i < result.length; i++) {
+//            result[i] = posters[posters.length - 1 - i];
+//        }
+//        return result;
     }
 }
